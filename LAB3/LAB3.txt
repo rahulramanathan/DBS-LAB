@@ -1,0 +1,237 @@
+
+SQL> create table person3242
+  2  (did varchar(30),
+  3  name varchar(50),
+  4  address varchar(100));
+
+Table created.
+
+SQL> create table car3242
+  2  (regno varchar(20),
+  3  model varchar(30),
+  4  year int);
+
+Table created.
+
+SQL> create table accident3242
+  2  (report_number int,
+  3  accd_date date,
+  4  location varchar(50));
+
+Table created.
+
+SQL> create table owns3242
+  2  (did varchar(30),
+  3  regno varchar(20));
+
+
+Table created.
+SQL> create table participated3242
+  2  (did varchar(30),
+  3  regno varchar(20),
+  4  report_number int,
+  5  damage_amount int);
+
+Table created.
+
+SQL> alter table person3242
+  2  add primary key(did);
+
+Table altered.
+
+SQL> alter table car3242
+  2  add primary key(regno);
+
+Table altered.
+
+SQL> alter table accident3242
+  2  add primary key(report_number)
+  3  ;
+
+Table altered.
+
+SQL> alter table owns3242
+  2  add primary key(did,regno);
+
+Table altered.
+
+SQL> alter table participated3242
+  2  add primary key(did,report_number);
+
+Table altered.
+
+SQL> drop table owns3242;
+
+Table dropped.
+
+SQL> drop table participated3242;
+
+Table dropped.
+
+SQL> create table owns3242
+  2  (did varchar(30),
+  3  regno varchar(20));
+
+Table created.
+
+SQL> alter table owns3242
+  2  add foreign key(did) references person3242;
+
+Table altered.
+
+SQL> alter table owns3242
+  2  add foreign key(regno) references car3242;
+
+Table altered.
+
+SQL> create table participated3242
+  2  (did varchar(30),
+  3  regno varchar(20),
+  4  report_number int,
+  5  damage_amount int,
+  6  foreign key(did) references person3242(did),
+  7  foreign key(regno) references car3242(regno),
+  8  foreign key(report_number) references accident3242(report_number));
+
+Table created.
+
+SQL> insert into person3242 values
+  2  ('&did','&name','&address');
+Enter value for did: 1
+Enter value for name: Agni
+Enter value for address: Kolkata
+old   2: ('&did','&name','&address')
+new   2: ('1','Agni','Kolkata')
+
+1 row created.
+
+SQL> /
+Enter value for did: 2
+Enter value for name: Summer
+Enter value for address: Bangalore
+old   2: ('&did','&name','&address')
+new   2: ('2','Summer','Bangalore')
+
+1 row created.
+
+SQL> /
+Enter value for did: 3
+Enter value for name: Rahul
+Enter value for address: Thane
+old   2: ('&did','&name','&address')
+new   2: ('3','Rahul','Thane')
+
+1 row created.
+
+SQL> insert into car3242 values
+  2  ('&regno','&model',&year);
+Enter value for regno: 10
+Enter value for model: Phantom
+Enter value for year: 1990
+old   2: ('&regno','&model',&year)
+new   2: ('10','Phantom',1990)
+
+1 row created.
+SQL> insert into car3242 values
+  2  ('&regno','&model',&year);
+Enter value for regno: 11
+Enter value for model: Ghost
+Enter value for year: 1991
+old   2: ('&regno','&model',&year)
+new   2: ('11','Ghost',1991)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 12
+Enter value for model: Wraith
+Enter value for year: 1992
+old   2: ('&regno','&model',&year)
+new   2: ('12','Wraith',1992)
+
+1 row created.
+
+SQL> insert into accident3242 values
+  2  (&report_number,'&accd_date','&location');
+Enter value for report_number: 12
+Enter value for accd_date: 26-Nov-1997
+Enter value for location: Bandra
+old   2: (&report_number,'&accd_date','&location')
+new   2: (12,'26-Nov-1997','Bandra')
+
+1 row created.
+
+SQL> /
+Enter value for report_number: 13
+Enter value for accd_date: 25-Sep-1997
+Enter value for location: Delhi
+old   2: (&report_number,'&accd_date','&location')
+new   2: (13,'25-Sep-1997','Delhi')
+
+1 row created.
+
+SQL> /
+Enter value for report_number: 14
+Enter value for accd_date: 13-Jun-1995
+Enter value for location: Las Vegas
+old   2: (&report_number,'&accd_date','&location')
+new   2: (14,'13-Jun-1995','Las Vegas')
+
+1 row created.
+
+SQL> insert into owns3242 values
+  2  ('&did','&regno')
+  3  ;
+Enter value for did: 1
+Enter value for regno: 10
+old   2: ('&did','&regno')
+new   2: ('1','10')
+
+1 row created.
+
+SQL> /
+Enter value for did: 2
+Enter value for regno: 11
+old   2: ('&did','&regno')
+new   2: ('2','11')
+
+1 row created.
+
+SQL> /
+Enter value for did: 3
+Enter value for regno: 12
+old   2: ('&did','&regno')
+new   2: ('3','12')
+
+1 row created.
+
+SQL> insert into participated3242 values
+  2  ('&did','&regno',&report_number,&damage_amount);
+Enter value for did: 1
+Enter value for regno: 10
+Enter value for report_number: 12
+Enter value for damage_amount: 500000
+old   2: ('&did','&regno',&report_number,&damage_amount)
+new   2: ('1','10',12,500000)
+
+1 row created.
+
+SQL> /
+Enter value for did: 2
+Enter value for regno: 11
+Enter value for report_number: 13
+Enter value for damage_amount: 400000
+old   2: ('&did','&regno',&report_number,&damage_amount)
+new   2: ('2','11',13,400000)
+
+1 row created.
+
+SQL> /
+Enter value for did: 3
+Enter value for regno: 12
+Enter value for report_number: 14
+Enter value for damage_amount: 300000
+old   2: ('&did','&regno',&report_number,&damage_amount)
+new   2: ('3','12',14,300000)
+
+1 row created.

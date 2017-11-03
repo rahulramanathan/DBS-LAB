@@ -1,0 +1,220 @@
+SQL> create table customer3242
+  2  (cust int,
+  3  cname varchar(20),
+  4  city varchar(10),
+  5  primary key(cust));
+
+SQL> create table orders3242
+  2  (orderno int,
+  3  odate date,
+  4  cust int,
+  5  ordamt int,
+  6  primary key(orderno));
+
+Table created.
+
+SQL> create table item3242
+  2  (item int,
+  3  unitprice int,
+  4  primary key(item));
+
+Table created.
+
+SQL> create table order_items3242
+  2  (orderno int,
+  3  item int,
+  4  primary key(orderno,item),
+  5  foreign key(orderno) references orders3242(orderno),
+  6  foreign key(item) references item3242(item));
+
+Table created.
+
+
+SQL> create table warehouse3242
+  2  (warehouseno int,city varchar(20),
+  3  primary key(warehouseno));
+
+Table created.
+
+SQL> create table shipment3242
+  2  (orderno int,warehouseno int,shipdate date,
+  3  primary key(orderno,warehouseno),
+  4  foreign key(orderno) references orders3242(orderno),
+  5  foreign key(warehouseno) references warehouse3242(warehouseno));
+
+Table created.
+***************************************************************
+SQL> insert into customer3242 values(1,'Rahul','Thane');
+
+1 row created.
+
+SQL> insert into customer3242 values(2,'Rishav','Dharavi');
+
+1 row created.
+
+SQL> insert into customer3242 values(3,'Summer','Bangalore')
+
+1 row created.
+
+SQL> insert into customer3242 values(4,'Agni','Kolkata');
+
+1 row created.
+
+SQL> insert into customer3242 values(5,'Pawan','Hyderabad');
+
+1 row created.
+
+SQL> select * from customer3242;
+
+      CUST CNAME                CITY
+---------- -------------------- ----------
+         1 Rahul                Thane
+         2 Rishav               Dharavi
+         3 Summer               Bangalore
+         4 Agni                 Kolkata
+         5 Pawan                Hyderabad
+------------------------------------------------------------------------------------------
+SQL> insert into orders3242 values(123,'09-MAY-2015',23,500);
+
+1 row created.
+
+SQL> insert into orders3242 values(124,'09-MAY-2015',35,1500);
+
+1 row created.
+
+SQL> insert into orders3242 values(125,'19-AUG-2017',3,2500);
+
+1 row created.
+
+SQL> insert into orders3242 values(227,'19-AUG-2007',4,1670);
+
+1 row created.
+
+SQL> insert into orders3242 values(87,'11-JUN-2010',1,9085);
+
+1 row created.
+
+SQL> select * from orders3242;
+
+   ORDERNO ODATE           CUST     ORDAMT
+---------- --------- ---------- ----------
+       123 09-MAY-15         23        500
+       124 09-MAY-15         35       1500
+       125 19-AUG-17          3       2500
+       227 19-AUG-07          4       1670
+        87 11-JUN-10          1       9085
+--------------------------------------------------------------------------------------------
+SQL> insert into item3242 values(314,20);
+
+1 row created.
+
+SQL> insert into item3242 values(315,120);
+
+1 row created.
+
+SQL> insert into item3242 values(318,510);
+
+1 row created.
+
+SQL> insert into item3242 values(118,100);
+
+1 row created.
+
+SQL> insert into item3242 values(40,200);
+
+1 row created.
+SQL> select * from item3242;
+
+      ITEM  UNITPRICE
+---------- ----------
+       314         20
+       315        120
+       318        510
+       118        100
+        40        200
+---------------------------------------------------------------------------------------------
+
+SQL> insert into warehouse3242 values(666,'Thane');
+
+1 row created.
+
+SQL> insert into warehouse3242 values(667,'Bandra');
+
+1 row created.
+
+SQL> insert into warehouse3242 values(668,'Mulund');
+
+1 row created.
+
+SQL> insert into warehouse3242 values(669,'Vashi');
+
+1 row created.
+
+SQL> insert into warehouse3242 values(670,'Andheri');
+
+1 row created.
+
+SQL> select * from warehouse3242;
+
+WAREHOUSENO CITY
+----------- --------------------
+        666 Thane
+        667 Bandra
+        668 Mulund
+        669 Vashi
+        670 Andheri
+-----------------------------------------------------------------------------------------
+
+SQL> create table order_items3242
+  2  (orderno int,qty int, item int,
+  3  primary key(orderno,item),
+  4  foreign key(orderno) references orders3242(orderno),
+  5  foreign key(item) references item3242(item));
+
+Table created.
+
+SQL> insert into order_items3242 values(123,4,314);
+
+1 row created.
+
+SQL> insert into order_items3242 values(124,3,315);
+
+1 row created.
+
+SQL> insert into order_items3242 values(125,7,318);
+
+1 row created.
+
+SQL> insert into order_items3242 values(227,2,118);
+
+1 row created.
+
+SQL> insert into order_items3242 values(87,1,40);
+
+1 row created.
+
+SQL> select * from order_items3242;
+
+   ORDERNO        QTY       ITEM
+---------- ---------- ----------
+       123          4        314
+       124          3        315
+       125          7        318
+       227          2        118
+        87          1         40
+***************************************************
+CUSTNAME             NOOFORDERS  AVGORDAMT
+-------------------- ---------- ----------
+Agni                          1       1670
+Summer                        1       2500
+Rahul                         1       9085
+***************************************************
+
+SQL> select shipment3242.orderno
+  2  from shipment3242 natural join warehouse3242
+  3  where warehouse3242.city='Bandra';
+
+   ORDERNO
+----------
+       125
+****************************************************

@@ -1,0 +1,18 @@
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\bin\Debug\StudentRegFormLab1.exe.config
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\bin\Debug\StudentRegFormLab1.exe
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\bin\Debug\StudentRegFormLab1.pdb
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.csprojResolveAssemblyReference.cache
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.MainForm.resources
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.Properties.Resources.resources
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.csproj.GenerateResource.Cache
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.exe
+F:\DBS\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.pdb
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\bin\Debug\StudentRegFormLab1.exe.config
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.exe
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.pdb
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\bin\Debug\StudentRegFormLab1.exe
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\bin\Debug\StudentRegFormLab1.pdb
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.csprojResolveAssemblyReference.cache
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.MainForm.resources
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.Properties.Resources.resources
+C:\Users\mahe\Documents\Visual Studio 2015\Projects\StudentRegFormLab1\StudentRegFormLab1\obj\Debug\StudentRegFormLab1.csproj.GenerateResource.Cache

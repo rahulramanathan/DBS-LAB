@@ -1,0 +1,9 @@
+E:\rahulR59\SciFiCalc\SciFiCalc\bin\Debug\SciFiCalc.exe.config
+E:\rahulR59\SciFiCalc\SciFiCalc\bin\Debug\SciFiCalc.exe
+E:\rahulR59\SciFiCalc\SciFiCalc\bin\Debug\SciFiCalc.pdb
+E:\rahulR59\SciFiCalc\SciFiCalc\obj\Debug\SciFiCalc.csprojResolveAssemblyReference.cache
+E:\rahulR59\SciFiCalc\SciFiCalc\obj\Debug\SciFiCalc.Form1.resources
+E:\rahulR59\SciFiCalc\SciFiCalc\obj\Debug\SciFiCalc.Properties.Resources.resources
+E:\rahulR59\SciFiCalc\SciFiCalc\obj\Debug\SciFiCalc.csproj.GenerateResource.Cache
+E:\rahulR59\SciFiCalc\SciFiCalc\obj\Debug\SciFiCalc.exe
+E:\rahulR59\SciFiCalc\SciFiCalc\obj\Debug\SciFiCalc.pdb

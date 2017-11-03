@@ -1,0 +1,94 @@
+SQL> create table student
+  2  (regno varchar(10),name varchar(15),major varchar(10),bdate date,
+  3  primary key(regno));
+
+REGNO      NAME            MAJOR      BDATE
+---------- --------------- ---------- ---------
+150953242  Rahul           Computers  26-NOV-97
+150953196  Kuber           Computers  12-APR-97
+150909143  Karan           Mechanical 29-JUN-97
+150909265  Sanket          Mechanical 02-JUL-97
+150911044  Harsh           IT         07-SEP-97
+******************************************************
+SQL> create table course
+  2  (course# int,cname varchar(15),dept varchar(15)
+  3  primary key(course#));
+
+   COURSE# CNAME           DEPT
+---------- --------------- ---------------
+      3162 DBS             ICT
+       363 RUP             ICT
+       302 ESD             ICT
+       911 MD              MECH
+       904 METRO           MECH
+**********************************************************
+SQL> create table enroll
+  2  (regno varchar(10),course# int,sem int,book_isbn int,
+  3  primary key(regno,course#),
+     foreign key(regno) references student(regno)
+     foreign key(course#) references course(course#));
+
+REGNO         COURSE#        SEM  BOOK_ISBN
+---------- ---------- ---------- ----------
+150953242         363          5       1234
+150953242         302          4       2314
+150909143         911          4       3124
+150909143         904          5       4231
+150911044        3162          5       1324
+150909143         302          4       2314
+************************************************************
+SQL> create table text
+  2  (book_isbn int,booktitle varchar(25),publisher varchar(15),author varchar(30),
+  3  primary key(book_isbn));
+
+ BOOK_ISBN BOOKTITLE            PUBLISHER  AUTHOR
+---------- -------------------- ---------- ------------------------------
+      1234 Fund of SE           Penguin    Roger Pressman
+      2314 LPC1768 Datasheet    Penguin    Santosh Rao
+      1324 Database Systems     Penguin    Schilbershatz
+      3124 Machine Design       McGrawHill Kuber Nandwani
+      4231 Metrology            McGrawHill Akarsh Kumar
+************************************************************
+SQL> create table book_adoption
+  2  (course# int,sem int,book_isbn int,
+  3  primary key(course#,book_isbn),
+  4  foreign key(course#) references course(course#),
+  5  foreign key(book_isbn) references text(book_isbn));
+
+   COURSE#        SEM  BOOK_ISBN
+---------- ---------- ----------
+       363          5       1234
+       302          4       2314
+       911          4       3124
+       904          5       4231
+      3162          5       1324
+       363          5       1324
+************************************************************
+I}
+
+SQL> select course#,cname
+  2  from course
+  3  where course# in(select course#
+  4              from book_adoption
+  5              group by course#
+  6              having count(book_isbn)>1);
+
+   COURSE# CNAME
+---------- ---------------
+       363 RUP
+**********************************************************
+II}
+  SQL> select distinct(dept)
+  2  from course natural join book_adoption
+  3  where book_isbn in(select book_isbn
+  4                from text
+  5                where publisher='Penguin');
+
+DEPT
+---------------
+ICT
+**********************************************************
+III}
+
+********************************************************** 
+IV}

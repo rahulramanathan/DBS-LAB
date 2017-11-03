@@ -1,0 +1,99 @@
+output snapshots
+
+
+SQL> select * from car3242;
+
+REGNO                MODEL                                YEAR
+-------------------- ------------------------------ ----------
+10                   Phantom                              1990
+11                   Ghost                                1991
+12                   Wraith                               1992
+13                   Veyron                               1993
+14                   Chiron                               1994
+
+
+SQL> select * from person3242;
+
+DID                          NAME                      ADDRESS
+-----------------------------------------------------------
+1		Agni 		Kolkata
+2		Summer		Bangalore
+3		Rahul		Thane
+4		Pawan		Hyderabad
+5		Rishav		Dharavi
+
+
+SQL> SELECT * from accident3242;
+
+REPORT_NUMBER ACCD_DATE LOCATION
+------------- --------- ----------
+           12 26-NOV-97 Bandra
+           13 25-SEP-97 Delhi
+           14 13-JUN-95 Las Vegas
+           21 01-JUN-08 Manipal
+           24 07-MAR-08 Udupi
+
+
+SQL> select * from owns3242;
+
+DID                            REGNO
+------------------------------ -------------
+1                              10
+2                              11
+3                              12
+4                              13
+5                              14
+
+SQL> select * from participated3242;
+
+DID        REGNO      REPORT_NUMBER DAMAGE_AMOUNT
+---------- ---------- ------------- -------------
+1          10                    12         50000
+2          11                    13         53000
+3          12                    14         55000
+4          13                    21         57000
+5          14                    24         60000
+*****************************************************
+3)
+SQL> select * from participated3242;
+
+DID        REGNO      REPORT_NUMBER DAMAGE_AMOUNT
+---------- ---------- ------------- -------------
+1          10                    12         25000
+2          11                    13         53000
+3          12                    14         55000
+4          13                    21         57000
+5          14                    24         60000
+**********************************************************
+4)
+SQL> alter table participated3242
+  2  add ABCD int;
+
+Table altered.
+
+SQL> select * from participated3242;
+
+DID        REGNO      REPORT_NUMBER DAMAGE_AMOUNT       ABCD
+---------- ---------- ------------- ------------- ----------
+1          10                    12         25000
+2          11                    13         53000
+3          12                    14         55000
+4          13                    21         57000
+5          14                    24         60000
+
+SQL> alter table participated3242
+  2  drop column ABCD;
+
+Table altered.
+
+SQL> select * from participated3242;
+
+DID        REGNO      REPORT_NUMBER DAMAGE_AMOUNT
+---------- ---------- ------------- -------------
+1          10                    12         25000
+2          11                    13         53000
+3          12                    14         55000
+4          13                    21         57000
+5          14                    24         60000
+**************************************************************
+5)

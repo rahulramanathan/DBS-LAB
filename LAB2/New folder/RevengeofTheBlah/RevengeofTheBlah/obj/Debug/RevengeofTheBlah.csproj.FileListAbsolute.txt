@@ -1,0 +1,9 @@
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\bin\Debug\RevengeofTheBlah.exe.config
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\bin\Debug\RevengeofTheBlah.exe
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\bin\Debug\RevengeofTheBlah.pdb
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\obj\Debug\RevengeofTheBlah.Form1.resources
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\obj\Debug\RevengeofTheBlah.Form2.resources
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\obj\Debug\RevengeofTheBlah.Properties.Resources.resources
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\obj\Debug\RevengeofTheBlah.csproj.GenerateResource.Cache
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\obj\Debug\RevengeofTheBlah.exe
+E:\New folder\RevengeofTheBlah\RevengeofTheBlah\obj\Debug\RevengeofTheBlah.pdb

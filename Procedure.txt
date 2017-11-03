@@ -1,0 +1,104 @@
+Procedure:
+set serveroutput on;
+create or replace procedure adder(n1 in number, n2 in number)      
+is     
+n3 number(8);    
+begin    
+n3 :=n1+n2;    
+dbms_output.put_line('Addition is: ' || n3);    
+end;    
+/   
+
+execute adder(3,7);
+
+
+ set serveroutput on;
+ CREATE OR REPLACE PROCEDURE insertPerson
+ (id IN VARCHAR,fname IN VARCHAR, lname IN VARCHAR) IS
+ counter INTEGER;
+ BEGIN
+ SELECT COUNT(*) INTO counter FROM person3022 p WHERE p.driver_id = id;
+ IF (counter > 0) THEN
+ DBMS_OUTPUT.PUT_LINE ('WARNING Inserting person: person
+ with pid ' || id || ' already exists!');
+ ELSE
+ INSERT INTO person3022 VALUES (id, fname, lname);
+ DBMS_OUTPUT.PUT_LINE ('Person with pid ' || id || ' is inserted.');
+ END IF;
+ END;
+ /
+execute insertPerson('22','nji','gduh');
+TO DISPLAY ERRORS :show errors;
+ set serveroutput on : prints output.
+
+
+DECLARE
+   a number;
+   b number;
+   c number;
+PROCEDURE findMin(x IN number, y IN number, z OUT number) IS
+BEGIN
+   IF x < y THEN
+      z:= x;
+   ELSE
+      z:= y;
+   END IF;
+END;
+BEGIN
+   a:= 23;
+   b:= 45;
+   findMin(a, b, c);
+   dbms_output.put_line(' Minimum of (23, 45) : ' || c);
+END;
+/
+
+set serveroutput on;
+DECLARE
+   a varchar(20);
+   b varchar(20);
+PROCEDURE showPerson
+ (id IN VARCHAR, lname OUT VARCHAR) IS
+ BEGIN
+ SELECT name INTO lname FROM person3022 p WHERE p.driver_id = id;
+ END;
+BEGIN
+   a:= '22';
+  showPerson(a, b);
+   dbms_output.put_line(' Name is : ' || b);
+END;
+ /
+ 
+
+Function :
+
+CREATE OR REPLACE FUNCTION show_description (i_course_no IN
+number)
+RETURN varchar2 AS
+v_description varchar2(50); BEGIN
+SELECT cname INTO v_description FROM course
+WHERE course = i_course_no;
+RETURN v_description;
+EXCEPTION
+WHEN NO_DATA_FOUND
+THEN
+RETURN('The Course is not in the database');
+WHEN OTHERS
+THEN
+RETURN('Error in running show_description');
+END;
+/
+
+SELECT show_description(1) FROM Dual;
+
+or
+
+SET SERVEROUTPUT ON 
+DECLARE
+v_description
+VARCHAR2(50);
+BEGIN
+v_description := show_description(&sv_cnumber); -- & prompt.
+DBMS_OUTPUT.PUT_LINE(v_description);
+END;
+/
+

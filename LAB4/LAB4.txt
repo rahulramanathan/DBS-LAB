@@ -1,0 +1,77 @@
+SQL> insert into accident3242 values
+  2  (&report_number,'&accd_date','&LOCATION');
+Enter value for report_number: 21
+Enter value for accd_date: 01-Jun-2008
+Enter value for location: Manipal
+old   2: (&report_number,'&accd_date','&LOCATION')
+new   2: (21,'01-Jun-2008','Manipal')
+
+1 row created.
+
+SQL> /
+Enter value for report_number: 24
+Enter value for accd_date: 07-Mar-2008
+Enter value for location: Udupi
+old   2: (&report_number,'&accd_date','&LOCATION')
+new   2: (24,'07-Mar-2008','Udupi')
+
+1 row created.
+
+SQL> select * from accident3242;
+
+REPORT_NUMBER ACCD_DATE LOCATION
+------------- --------- --------------------------
+           12 26-NOV-97 Bandra
+           13 25-SEP-97 Delhi
+           14 13-JUN-95 Las Vegas
+           21 01-JUN-08 Manipal
+           24 07-MAR-08 Udupi
+
+SQL> commit;
+
+Commit complete.
+********************************************************************
+
+SQL> select count(distinct did)
+  2  from accident3242,participated3242
+  3  where extract(year from accident3242.accd_date)='2008' and accident3242.report_number=participa
+ted3242.report_number;
+
+COUNT(DISTINCTDID)
+------------------
+                 0
+
+********************************************************************
+
+SQL> select count(*)
+  2  from car3242,participated3242
+  3  where car3242.regno=participated3242.regno and car3242.model='Phantom';
+
+  COUNT(*)
+----------
+         1
+****************************************************************************
+
+SQL> select person3242.name as OWNER, count(person3242.name) as NOACCD, sum(participated3242.damage_
+amount) as TOTDMGAMT
+  2  from person3242,participated3242
+  3  where person3242.did=participated.did
+  4  group by(OWNER)
+  5  order by(TOTDMGAMT);
+group by(OWNER)
+         *
+ERROR at line 4:
+ORA-00904: "OWNER": invalid identifier
+
+
+SQL> COMMIT;
+
+Commit complete.
+*****************************************************************************
+Q4. count()>2
+Q5. 
+SQL> select did from person3242
+  2  minus
+  3  select did from participated3242;
+
+no rows selected

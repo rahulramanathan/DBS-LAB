@@ -1,0 +1,9 @@
+E:\New folder\NotePad1\NotePad1\bin\Debug\NotePad1.exe.config
+E:\New folder\NotePad1\NotePad1\bin\Debug\NotePad1.exe
+E:\New folder\NotePad1\NotePad1\bin\Debug\NotePad1.pdb
+E:\New folder\NotePad1\NotePad1\obj\Debug\NotePad1.Form1.resources
+E:\New folder\NotePad1\NotePad1\obj\Debug\NotePad1.Properties.Resources.resources
+E:\New folder\NotePad1\NotePad1\obj\Debug\NotePad1.csproj.GenerateResource.Cache
+E:\New folder\NotePad1\NotePad1\obj\Debug\NotePad1.exe
+E:\New folder\NotePad1\NotePad1\obj\Debug\NotePad1.pdb
+E:\New folder\NotePad1\NotePad1\obj\Debug\NotePad1.csprojResolveAssemblyReference.cache

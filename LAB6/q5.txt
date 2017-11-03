@@ -1,0 +1,52 @@
+3
+create or replace function accd_fn(yr in varchar2)
+return number
+as
+   no_of_accd number;
+begin
+	select count(report_number) into no_of_accd
+	from accident3242
+	where extract(year from accd_date)=yr;
+	return no_of_accd;
+end;
+
+SQL> select accd_fn('1997') from Dual;
+
+ACCD_FN('1997')
+---------------
+              2
+****************************************************************
+4
+set serveroutput on
+create or replace procedure damage(did_in in varchar2,year_in in varchar2)
+as tot_dmg_amt integer;
+begin
+  select sum(damage_amount) into tot_dmg_amt
+  from participated3242
+  where report_number in (select report_number
+  from accident3242
+  where extract(year from accd_date)='1997')
+  and did='1';
+ DBMS_OUTPUT.PUT_LINE(tot_dmg_amt);
+end;
+
+SQL> execute damage('1','1997');
+78000
+*******************************************************************
+5
+set serveroutput on
+create or replace procedure location_info(location_in in varchar2)
+is
+begin    
+    for i in (select name,participated3242.did as D,report_number,accd_date
+    from accident3242 natural join participated3242,person3242
+    where person3242.did=participated3242.did and location = location_in)
+    loop
+        dbms_output.put_line(i.name || ' ' || i.D || ' ' || i.report_number || ' ' || i.accd_date);
+    end loop;
+end;
+
+
+SQL> execute location_info('Manipal');
+Pawan 4 21 01-JUN-08
+Rishav 5 24 07-MAR-08
