@@ -9,7 +9,7 @@ REGNO      NAME            MAJOR      BDATE
 150909143  Karan           Mechanical 29-JUN-97
 150909265  Sanket          Mechanical 02-JUL-97
 150911044  Harsh           IT         07-SEP-97
-******************************************************
+*****************************************************
 SQL> create table course
   2  (course# int,cname varchar(15),dept varchar(15)
   3  primary key(course#));
